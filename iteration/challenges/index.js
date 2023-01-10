@@ -11,6 +11,14 @@ When you're ready to move on to the next function replace skipTest with runTest.
 
 function makeAllUpperCase(arr) {
   // This function should take an array of strings as an argument and return an array consisting of the same strings in upper case (retaining the order)
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(arr[i].toUpperCase())
+  }
+  return newArr;
+  console.log(newArr);
+  
 }
 
 runTest("makeAllUpperCase() can convert all strings to upper case", function () {

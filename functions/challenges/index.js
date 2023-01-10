@@ -15,6 +15,11 @@ modulo()
 This function should take two arguments a and b, and return the remainder of the division of a / b
 */
 
+function modulo(a, b) {
+  return (a % b)
+}
+
+
 runTest("modulo() returns the correct remainder", function () {
   check(modulo(10, 2)).isEqualTo(0);
   check(modulo(119, 10)).isEqualTo(9);
@@ -27,7 +32,11 @@ squareRoot()
 This function should take a single argument and return its square root
 */
 
-skipTest("squareRoot() returns the square root of a positive integer", function () {
+function squareRoot(integer) {
+  return Math.sqrt(integer)
+}
+
+runTest("squareRoot() returns the square root of a positive integer", function () {
   check(squareRoot(100)).isEqualTo(10);
   check(squareRoot(25)).isEqualTo(5);
   check(squareRoot(121)).isEqualTo(11);
@@ -38,8 +47,11 @@ raiseToPower()
 
 This function should take two arguments, m and n, and return m raised to the power of n
 */
+function raiseToPower (m, n){
+  return Math.pow(m,n)
+}
 
-skipTest("raiseToPower() raises given number to the given power", function () {
+runTest("raiseToPower() raises given number to the given power", function () {
   check(raiseToPower(10, 3)).isEqualTo(1000);
   check(raiseToPower(25, 2)).isEqualTo(625);
   check(raiseToPower(10, 0)).isEqualTo(1);
@@ -50,7 +62,12 @@ capitaliseFirstLetter()
 
 This function should take a string as an argument and return the same string with the first letter capitalised
 */
-skipTest("capitaliseFirstLetter() capitalises the first letter in a string", function () {
+function capitaliseFirstLetter(string) {
+  return (string[0].toUpperCase() + string.slice(1))
+}
+
+
+runTest("capitaliseFirstLetter() capitalises the first letter in a string", function () {
   check(capitaliseFirstLetter("bang")).isEqualTo("Bang");
   check(capitaliseFirstLetter("apple")).isEqualTo("Apple");
   check(capitaliseFirstLetter("coding")).isEqualTo("Coding");
@@ -63,8 +80,11 @@ This function should take two arguments and return true if they are *strictly* e
 
 NOTE: you can complete this problem without resorting to if statements!
 */
+function areValuesEqual(a, b) {
+  return Boolean(a === b)
+}
 
-skipTest("areValuesEqual() checks if two values are strictly equal", function () {
+runTest("areValuesEqual() checks if two values are strictly equal", function () {
   check(areValuesEqual(10, 10)).isEqualTo(true);
   check(areValuesEqual("hello", "hello")).isEqualTo(true);
   check(areValuesEqual("good", "bad")).isEqualTo(false);
@@ -78,8 +98,12 @@ This function should take a number as an argument representing a year, and retur
 
 NOTE: you can complete this problem without resorting to if statements!
 */
+function isFromThe60s(year) {
+  return Boolean(year >= 1960) && (year < 1970) 
+}
 
-skipTest("isFromThe60s() checks if a number is within 1960 to 1969 (inclusive)", function () {
+
+runTest("isFromThe60s() checks if a number is within 1960 to 1969 (inclusive)", function () {
   check(isFromThe60s(1962)).isEqualTo(true);
   check(isFromThe60s(1965)).isEqualTo(true);
   check(isFromThe60s(1970)).isEqualTo(false);
@@ -95,7 +119,16 @@ isEvenLength()
 This function should take a string as an argument and return true if its length is even, and false otherwise
 */
 
-skipTest("isEvenLength() checks if string has even number of characters", function () {
+function isEvenLength(string) {
+  if (string.length % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
+}
+
+
+runTest("isEvenLength() checks if string has even number of characters", function () {
   check(isEvenLength("hello")).isEqualTo(false);
   check(isEvenLength("northcoders")).isEqualTo(false);
   check(isEvenLength("abcd")).isEqualTo(true);
@@ -109,8 +142,15 @@ This function should take a string as an argument representing a file path and r
 
 HINT: all absolute file paths start with a /
 */
+function isAbsolutePath(string) {
+  if (string.startsWith('/')) {
+    return true
+  } else {
+    return false
+  }
+}
 
-skipTest("isAbsolutePath() checks if a file path is absolute or relative", function () {
+runTest("isAbsolutePath() checks if a file path is absolute or relative", function () {
   check(isAbsolutePath("/Users/mitch")).isEqualTo(true);
   check(isAbsolutePath("/Users/mitch/northcoders/remote_course/remote_precourse_1")).isEqualTo(true);
   check(isAbsolutePath("../composers")).isEqualTo(false);
@@ -124,13 +164,31 @@ This function should take a string as an argument and return the middle (or midd
 
 NOTE: you could use the ternary operator for this challenge
 */
+function getMiddle(str) {
+  // return the middle (or middle two) character(s) of the passed string
+  
+    let position;
+    let length;
 
-skipTest("getMiddle() returns the middle character in a string of odd length", function () {
+    if(str.length % 2 == 1) {
+        position = str.length / 2;
+        length = 1;
+    } else {
+        position = str.length / 2 - 1;
+        length = 2;
+    }
+
+   let result = str.substring(position, position + length)
+   return result
+
+}
+
+runTest("getMiddle() returns the middle character in a string of odd length", function () {
   check(getMiddle("abc")).isEqualTo("b");
   check(getMiddle("mitch")).isEqualTo("t");
 });
 
-skipTest("getMiddle() returns the middle characters in a string of even length", function () {
+runTest("getMiddle() returns the middle characters in a string of even length", function () {
   check(getMiddle("abcd")).isEqualTo("bc");
   check(getMiddle("blob")).isEqualTo("lo");
 });

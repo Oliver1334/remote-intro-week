@@ -8,3 +8,7 @@ function double(num) {
 
 const result1 = double(10);
 console.log(result1);
+
+
+// terminal will print the answer to 10 * 2
+// terminal will actually print undefined because there is no 'return' used in the function
