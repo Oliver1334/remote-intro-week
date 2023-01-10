@@ -4,10 +4,10 @@
 // https://poets.org/poem/do-not-go-gentle-good-night
 
 console.log(
-  "Do not go gentle into that good night,Old age should burn and rage at close of day;Rage, rage against the dying of the light"
+  "Do not go gentle into that good night, \nOld age should burn and rage at close of day;\nRage, rage against the dying of the light"
 );
 console.log(
-  "Though wise men at their end know dark is right,Because their words had forked no lightning theyDo not go gentle into that good night."
+  "Though wise men at their end know dark is right,\n Because their words had forked no lightning they\nDo not go gentle into that good night."
 );
 console.log(
   "Good men, the last wave by, crying how brightTheir frail deeds might have danced in a green bay,Rage, rage against the dying of the light."

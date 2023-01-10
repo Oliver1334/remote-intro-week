@@ -1,3 +1,4 @@
-// console.log("Hello,there,northcoders!");
+ console.log("Hello,there,northcoders!");
 
-// Write your comments here...
+// The string "Hello,there,northcoders!" will be printed in the terminal
+
