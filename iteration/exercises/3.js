@@ -3,6 +3,11 @@ const { check, runTest } = require("../../test-api");
 const items = [];
 
 // your loop here...
+for (let i = 42; i > 2; i--) {
+  items.push(i)
+}
+console.log(items);
+
 
 runTest("check numbers starting at 42 and descending to 3 are pushed into an array", function () {
   check(items).isEqualTo([
