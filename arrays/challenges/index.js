@@ -11,6 +11,7 @@ When you're ready to move on to the next function replace skipTest with runTest.
 
 function getLastItem(arr) {
   // This function should take an array as an argument and return the last item from it
+  return arr.pop()
 }
 
 runTest("getLastItem() returns the last item in an array", function () {
@@ -20,9 +21,15 @@ runTest("getLastItem() returns the last item in an array", function () {
 
 function getLastNItems(arr, n) {
   // This function should take two arguments, an array and a number n, and return a new array containing the last n items of the given array
+  let slicevalue = n
+if (slicevalue = 0) {
+  return []
+} else {
+  return arr.slice(-slicevalue)
+}
 }
 
-skipTest("getLastNItems() returns the last n items in an array", function () {
+runTest("getLastNItems() returns the last n items in an array", function () {
   check(getLastNItems(["a", "b", "c", "d"], 2)).isEqualTo(["c", "d"]);
   check(getLastNItems(["apple", "banana", "pear", "kiwi"], 0)).isEqualTo([]);
   check(getLastNItems(["apple", "banana", "pear", "kiwi"], 3)).isEqualTo(["banana", "pear", "kiwi"]);

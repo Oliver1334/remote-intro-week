@@ -26,7 +26,7 @@ b) `1`
 
 c) `3`
 
-d) `4`
+d) `4` // arr.length will be 4, the first 0,1,2, indexes will be left empty but created
 
 ---
 
@@ -43,7 +43,7 @@ console.log(letters[0]);
 
 Which order will the following `console.log`s appear?
 
-a) `c`, `b`, `a`
+a) `c`, `b`, `a`  // this is the order of these console logs
 
 b) `a`, `c`, `b`
 
@@ -66,7 +66,7 @@ a) `2`
 
 b) `3`
 
-c) `4`
+c) `4` //this will be the length
 
 d) Won't work - will throw a `SyntaxError`
 
@@ -91,7 +91,7 @@ b) It will throw an error
 
 c) `"C"` will be printed to the `console`
 
-d) `"a`" will be printed to the `console`
+d) `"a`" will be printed to the `console`   // a will be printed
 
 ---
 
@@ -108,7 +108,7 @@ What will `arr.length` evaluate to?
 
 a) `0`
 
-b) `101`
+b) `101`  // this will be the length
 
 c) `100`
 
@@ -125,7 +125,7 @@ const emptyArray = [];
 console.log(emptyArray[0]);
 ```
 
-a) Will print `undefined`
+a) Will print `undefined` // this one
 
 b) Will print `0`
 
@@ -146,6 +146,6 @@ b) Will print `0`
 
 c) Will print `[]`
 
-d) Will throw an `Error`
+d) Will throw an `Error`  // will throw an error because unlike before this index CANNOT be defined
 
 ---

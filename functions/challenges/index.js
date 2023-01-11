@@ -230,7 +230,7 @@ skipTest('createPercentage() creates a percentage string in the form "--%"', fun
 extractNumber()
 
 This function should take a string containing a number wrapped in a pair of round brackets  and return said number
-*/
+*/git
 
 skipTest("extractNumber() should return the number buried inside a string", function () {
   check(extractNumber("lasjdasasj(123)asljdlajk")).isEqualTo(123);
