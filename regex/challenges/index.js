@@ -16,9 +16,20 @@ Try this link -> https://javascript.info/regexp-introduction#regular-expressions
 extractCode()
 
 This function should take a string as an argument
-Somwhere in the middle of the string, there will be a series of consecutive digits composing a number
+Somewhere in the middle of the string, there will be a series of consecutive digits composing a number
 You should extract that number from the string and return it
 */
+function extractCode(str) {
+
+  const regex = /\d/g;
+  const numbers = str.match(regex);
+  const newArr = numbers.join("");
+  const answer = +newArr
+  console.log(newArr);
+
+  return answer;
+}
+
 
 runTest("extractCode() can find the total from a single code string", function () {
   check(extractCode("abcd67yuio")).isEqualTo(67);
@@ -30,12 +41,17 @@ runTest("extractCode() can find the total from a single code string", function (
 /*
 isValidSortCode()
 
-This function should take a string repesenting a sort code as an argument
-A valid sort code should adher to the format: 2 digits hyphen 2 digits hyphen 2 digits
+This function should take a string representing a sort code as an argument
+A valid sort code should adhere to the format: 2 digits hyphen 2 digits hyphen 2 digits
 You should return true if the sort code is valid, and false otherwise
 */
 
-skipTest("isValidSortCode() should check is a sort code string is in the correct format", function () {
+function isValidSortCode(str) {
+
+  return regex = /^[0-9]{2}-[0-9]{2}-[0-9]{2}$/.test(str)
+}
+
+runTest("isValidSortCode() should check is a sort code string is in the correct format", function () {
   check(isValidSortCode("10-34-67")).isEqualTo(true);
   check(isValidSortCode("51-34-58")).isEqualTo(true);
   check(isValidSortCode("85-16-23")).isEqualTo(true);
@@ -55,7 +71,13 @@ An email is considered to be professional if it does not end with a kiss ("x" or
 You should return true if the email is professional, and false otherwise
 */
 
-skipTest("isProfessionalEmail() checks if an email ends with an x", function () {
+function isProfessionalEmail(str) {
+
+  const regex = /(x|X)$/.test(str);
+return !regex  //bang operator flips regex result
+}
+
+runTest("isProfessionalEmail() checks if an email ends with an x", function () {
   check(isProfessionalEmail("x")).isEqualTo(false);
   check(isProfessionalEmail("Dear Sir/Madam")).isEqualTo(true);
   check(isProfessionalEmail("Dear Alex, How are you?")).isEqualTo(true);
@@ -68,8 +90,30 @@ countVowels()
 
 This function should take a string as an argument, and return a count representing the number of vowels it contains
 */
+function countVowels(str) {
 
-skipTest("countVowels() counts the vowels in a string", function () {
+  const regex = /[aeiouAEIOU]/g;
+  
+const vowels = str.match(regex);
+  console.log(vowels);
+  
+  
+  if (!vowels) {
+    return 0
+} else {
+  const newArr = vowels.join("");
+  console.log(newArr);
+  const answer = newArr.length
+  console.log(newArr);
+
+  return answer;
+  }
+}
+
+
+
+
+runTest("countVowels() counts the vowels in a string", function () {
   check(countVowels("")).isEqualTo(0);
   check(countVowels("bcd")).isEqualTo(0);
   check(countVowels("a")).isEqualTo(1);
@@ -85,8 +129,29 @@ This function should take a string as an argument, and return a sum of all the n
 Consecutive digits should be taken as numbers: i.e. "24" = 24, not 6
 If there are no numbers, you should return 0
 */
+function sumNums(str) {
+  const regex = /[0-9]\d|\d/g;
+  const numbers = str.match(regex);    // array is strings not numbers
+  console.log(numbers);
+  if (!numbers) {
+    return 0
+} else {
+    
+let nums = numbers.map(function(str) { // using map() to convert array of strings to numbers
+         return parseInt(str); 
+  });
+  let total = 0
+  for (let i = 0; i < nums.length; i++) {
+      total += nums[i]
+  }
+return total;                    
+}
+}
+  
 
-skipTest("sumNums() totals all of the numbers in a string", function () {
+
+
+runTest("sumNums() totals all of the numbers in a string", function () {
   check(sumNums("hello")).isEqualTo(0);
   check(sumNums("1")).isEqualTo(1);
   check(sumNums("12")).isEqualTo(12);
@@ -103,7 +168,7 @@ collection of letters for the TV show countdown.
 In countdown a valid collection contains at least 4 consonants and 3 vowels and has exactly 9 letters
 */
 
-skipTest("testValidCountdown()", function () {
+runTest("testValidCountdown()", function () {
   check(testValidCountdown("aaabbbccc")).isEqualTo(true);
   check(testValidCountdown("eeeedddff")).isEqualTo(true);
   check(testValidCountdown("aeiouwxyz")).isEqualTo(true);
